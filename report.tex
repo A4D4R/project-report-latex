@@ -1,0 +1,133 @@
+% Author: Aadarsha Paudel
+% Use it for anything you want.
+% PS: You don't need to edit this file, go edit contents in
+% files/ folder. That file has everything you need to modify.
+
+\documentclass[a4paper,12pt]{report}
+\usepackage{calc} % does some calculation
+\usepackage[utf8]{inputenc} % modern fonts and utf8 support
+%\usepackage{times} % times new roman text
+\usepackage[vmargin=1in,hmargin=1in]{geometry} % margin to 1 inch
+\usepackage{titlesec} % change section title format
+\usepackage{graphicx} % for images
+\usepackage[font=small,labelfont=bf]{caption} % image caption
+\usepackage[nomain,acronym]{glossaries} % for abbreviations
+\usepackage{setspace} % normal spacing
+\usepackage{parskip} % paragraph spacing
+\usepackage{diagbox} % for diagonal line in time schedule table
+\usepackage[table]{xcolor} % for colors (black in chart)
+\usepackage{pgfgantt} % gantt chart (for time schedule)
+
+
+% Some Quick Formatting for Glossary Page (List of Abbreviation)
+
+\newglossarystyle{mylist}{%
+\renewcommand*{\glossentry}[2]{%
+\item[\glsentryitem{##1}%
+\glstarget{##1}{\glossentryname{##1}}]
+
+\glossentrydesc{##1} \glspostdescription }%
+}
+
+\setglossarystyle{mylist}
+\makeglossaries
+\input{files/abbr.tex} % importing abbreviations
+
+
+\setlength{\parindent}{15pt} % space after paragraph
+
+
+\def\figurename{\textbf{Figure }}
+
+\renewcommand{\Huge}{\fontsize{14}{14}} % Huge font size
+\renewcommand{\arraystretch}{1.5} % better table row height
+
+\titleformat{\chapter}[block]
+{\normalfont%
+    \Huge
+    \bfseries}{\thechapter}{14pt}{
+    \Huge
+    \uppercase
+    }
+
+\titleformat{\section}{\fontsize{12}{12}\bfseries}{\thesection}{0.5em}{\uppercase}
+\titleformat{\subsection}{\fontsize{12}{12}\bfseries}{\thesection}{0.5em}{\uppercase}
+
+\renewcommand{\contentsname}{\fontsize{14}{14}\centering\MakeUppercase{Table of Contents}}
+\renewcommand{\listfigurename}{\fontsize{14}{14}\centering\MakeUppercase{List of Figures}}
+\renewcommand{\listtablename}{\fontsize{14}{14}\centering\MakeUppercase{List of Tables}}
+\renewcommand{\bibname}{\fontsize{14}{14}\centering\MakeUppercase{References}}
+
+\newcommand{\cen}{\centering}
+\begin{document}
+
+% ----------------------
+% 		INDEX (COVER) FILE
+% ----------------------
+
+\input{files/index.tex}
+\newpage
+
+% Set Left Justify Text
+% \raggedleft
+% ----------------------
+% 		Acknowledgement
+% ----------------------
+\setcounter{page}{1}
+\renewcommand{\thepage}{\Roman{page}}
+
+\chapter*{\centering{Acknowledgement}}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\input{files/acknowledgement}
+\newpage
+
+\chapter*{\centering{Abstract}}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{files/abstract}
+\newpage
+
+\tableofcontents % Table of Contents
+\newpage
+\listoffigures % List of Figures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables % List of Tables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+%\chapter*{\centering{List of Abbreviation}}
+
+\printglossary[type=\acronymtype, title=\fontsize{14}{14}\centering{\MakeUppercase{List of Abbreviation}}, toctitle=List of Abbreviation]
+\addcontentsline{toc}{chapter}{List of Abbreviation}
+
+\pagebreak
+
+%\addcontentsline{toc}{chapter}{\listfigurename}
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+
+
+\chapter{Introduction}
+\input{files/introduction}
+\newpage
+
+\chapter{Literature Review}
+\input{files/literature}
+
+\chapter{Methodology}
+\input{files/methodology}
+
+\chapter{Time Schedule}
+\input{files/time}
+
+\chapter{Conclusion}
+\input{files/conclusion}
+
+\input{files/references}
+\addcontentsline{toc}{chapter}{References}
+
+
+
+\end{document}
+
+% End of document mate
+% nothing beyond here

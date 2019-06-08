@@ -1,0 +1,37 @@
+\section{Gantt Chart}
+
+% Hello everyone, I spent a day making this chart and finding what went wrong when xcolor gave weird errors, so don't say its ugly okay, thanks.
+%
+% Search for gantt chart examples if you want something else.
+% You can customize it if you want, learn yourself.
+% PS: Most Documentation on internet are outdated and won't compile.
+% This one works btw. I tried it. I worked on it so hard.
+% 
+
+
+Here is the gantt chart for the time schedule for this project.
+
+\vspace{10pt}
+\begin{table}[h!]
+\begin{centering}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=100pt,
+    bar height = 1, %necessary to make it fit the height
+    title height = 1,
+    bar top shift = 1, %to move it inside the grid space ;)
+    ]{1}{3}
+    \gantttitle{Week 1}{1}
+    \gantttitle{Week 2}{1}
+    \gantttitle{Week 3}{1}
+    \ganttbar[bar/.append style={fill=black}]{Project Proposal}{1}{1}\\
+    \ganttbar[bar/.append style={fill=black}]{Project Development}{1}{2}\\
+    \ganttbar[bar/.append style={fill=black}]{Project Testing}{3}{3}\\
+    \ganttbar[bar/.append style={fill=black}]{Documentation}{2}{3}\\
+\end{ganttchart}
+\caption{Time Schedule}
+\label{table:2}
+
+\end{centering}
+\end{table}
